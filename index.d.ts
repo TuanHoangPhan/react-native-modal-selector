@@ -372,6 +372,8 @@ interface IModalSelectorProps<TOption> {
    * Render a header above the list
    */
    header?: React.ReactNode;
+
+   statusBarTranslucent?: boolean
  
 }
 

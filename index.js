@@ -18,122 +18,123 @@ import styles from './style';
 let componentIndex = 0;
 
 const propTypes = {
-    data:                           PropTypes.array,
-    onChange:                       PropTypes.func,
-    onModalOpen:                    PropTypes.func,
-    onModalClose:                   PropTypes.func,
-    keyExtractor:                   PropTypes.func,
-    labelExtractor:                 PropTypes.func,
-    visible:                        PropTypes.bool,
-    closeOnChange:                  PropTypes.bool,
-    initValue:                      PropTypes.string,
-    listType:                       PropTypes.oneOf(['SCROLLVIEW', 'FLATLIST']),
-    animationType:                  PropTypes.oneOf(['none', 'slide', 'fade']),
-    style:                          PropTypes.oneOfType([PropTypes.object, PropTypes.number]),
-    selectStyle:                    PropTypes.oneOfType([PropTypes.object, PropTypes.number]),
-    selectTextStyle:                PropTypes.oneOfType([PropTypes.object, PropTypes.number]),
-    optionStyle:                    PropTypes.oneOfType([PropTypes.object, PropTypes.number]),
-    optionTextStyle:                PropTypes.oneOfType([PropTypes.object, PropTypes.number]),
-    optionContainerStyle:           PropTypes.oneOfType([PropTypes.object, PropTypes.number]),
-    sectionStyle:                   PropTypes.oneOfType([PropTypes.object, PropTypes.number]),
-    childrenContainerStyle:         PropTypes.oneOfType([PropTypes.object, PropTypes.number]),
-    touchableStyle:                 PropTypes.oneOfType([PropTypes.object, PropTypes.number]),
-    touchableActiveOpacity:         PropTypes.number,
-    sectionTextStyle:               PropTypes.oneOfType([PropTypes.object, PropTypes.number]),
-    selectedItemTextStyle:          PropTypes.oneOfType([PropTypes.object, PropTypes.number]),
-    cancelContainerStyle:           PropTypes.oneOfType([PropTypes.object, PropTypes.number]),
-    cancelStyle:                    PropTypes.oneOfType([PropTypes.object, PropTypes.number]),
-    cancelTextStyle:                PropTypes.oneOfType([PropTypes.object, PropTypes.number]),
-    overlayStyle:                   PropTypes.oneOfType([PropTypes.object, PropTypes.number]),
-    initValueTextStyle:             PropTypes.oneOfType([PropTypes.object, PropTypes.number]),
-    cancelText:                     PropTypes.string,
-    disabled:                       PropTypes.bool,
-    supportedOrientations:          PropTypes.arrayOf(
-                                      PropTypes.oneOf([
-                                        'portrait',
-                                        'portrait-upside-down',
-                                        'landscape',
-                                        'landscape-left',
-                                        'landscape-right',
-                                      ]),
-                                    ),
-    keyboardShouldPersistTaps:      PropTypes.oneOfType([PropTypes.string, PropTypes.bool]),
-    backdropPressToClose:           PropTypes.bool,
-    openButtonContainerAccessible:  PropTypes.bool,
-    listItemAccessible:             PropTypes.bool,
-    cancelButtonAccessible:         PropTypes.bool,
-    scrollViewAccessible:           PropTypes.bool,
-    scrollViewAccessibilityLabel:   PropTypes.string,
+    data: PropTypes.array,
+    onChange: PropTypes.func,
+    onModalOpen: PropTypes.func,
+    onModalClose: PropTypes.func,
+    keyExtractor: PropTypes.func,
+    labelExtractor: PropTypes.func,
+    visible: PropTypes.bool,
+    closeOnChange: PropTypes.bool,
+    initValue: PropTypes.string,
+    listType: PropTypes.oneOf(['SCROLLVIEW', 'FLATLIST']),
+    animationType: PropTypes.oneOf(['none', 'slide', 'fade']),
+    style: PropTypes.oneOfType([PropTypes.object, PropTypes.number]),
+    selectStyle: PropTypes.oneOfType([PropTypes.object, PropTypes.number]),
+    selectTextStyle: PropTypes.oneOfType([PropTypes.object, PropTypes.number]),
+    optionStyle: PropTypes.oneOfType([PropTypes.object, PropTypes.number]),
+    optionTextStyle: PropTypes.oneOfType([PropTypes.object, PropTypes.number]),
+    optionContainerStyle: PropTypes.oneOfType([PropTypes.object, PropTypes.number]),
+    sectionStyle: PropTypes.oneOfType([PropTypes.object, PropTypes.number]),
+    childrenContainerStyle: PropTypes.oneOfType([PropTypes.object, PropTypes.number]),
+    touchableStyle: PropTypes.oneOfType([PropTypes.object, PropTypes.number]),
+    touchableActiveOpacity: PropTypes.number,
+    sectionTextStyle: PropTypes.oneOfType([PropTypes.object, PropTypes.number]),
+    selectedItemTextStyle: PropTypes.oneOfType([PropTypes.object, PropTypes.number]),
+    cancelContainerStyle: PropTypes.oneOfType([PropTypes.object, PropTypes.number]),
+    cancelStyle: PropTypes.oneOfType([PropTypes.object, PropTypes.number]),
+    cancelTextStyle: PropTypes.oneOfType([PropTypes.object, PropTypes.number]),
+    overlayStyle: PropTypes.oneOfType([PropTypes.object, PropTypes.number]),
+    initValueTextStyle: PropTypes.oneOfType([PropTypes.object, PropTypes.number]),
+    cancelText: PropTypes.string,
+    disabled: PropTypes.bool,
+    supportedOrientations: PropTypes.arrayOf(
+        PropTypes.oneOf([
+            'portrait',
+            'portrait-upside-down',
+            'landscape',
+            'landscape-left',
+            'landscape-right',
+        ]),
+    ),
+    keyboardShouldPersistTaps: PropTypes.oneOfType([PropTypes.string, PropTypes.bool]),
+    backdropPressToClose: PropTypes.bool,
+    openButtonContainerAccessible: PropTypes.bool,
+    listItemAccessible: PropTypes.bool,
+    cancelButtonAccessible: PropTypes.bool,
+    scrollViewAccessible: PropTypes.bool,
+    scrollViewAccessibilityLabel: PropTypes.string,
     cancelButtonAccessibilityLabel: PropTypes.string,
-    passThruProps:                  PropTypes.object,
-    selectTextPassThruProps:        PropTypes.object,
-    optionTextPassThruProps:        PropTypes.object,
-    cancelTextPassThruProps:        PropTypes.object,
-    scrollViewPassThruProps:        PropTypes.object,
-    modalOpenerHitSlop:             PropTypes.object,
-    customSelector:                 PropTypes.node,
-    selectedKey:                    PropTypes.any,
-    enableShortPress:               PropTypes.bool,
-    enableLongPress:                PropTypes.bool,
-    optionsTestIDPrefix:            PropTypes.string,
-    header:                         PropTypes.node,
-    onEndReached:                   PropTypes.func,
+    passThruProps: PropTypes.object,
+    selectTextPassThruProps: PropTypes.object,
+    optionTextPassThruProps: PropTypes.object,
+    cancelTextPassThruProps: PropTypes.object,
+    scrollViewPassThruProps: PropTypes.object,
+    modalOpenerHitSlop: PropTypes.object,
+    customSelector: PropTypes.node,
+    selectedKey: PropTypes.any,
+    enableShortPress: PropTypes.bool,
+    enableLongPress: PropTypes.bool,
+    optionsTestIDPrefix: PropTypes.string,
+    header: PropTypes.node,
+    onEndReached: PropTypes.func,
 };
 
 const defaultProps = {
-    data:                           [],
-    onChange:                       () => {},
-    onModalOpen:                    () => {},
-    onModalClose:                   () => {},
-    keyExtractor:                   (item) => item && item.key,
-    labelExtractor:                 (item) => item && item.label,
-    componentExtractor:             (item) => item && item.component,
-    listType:                       'SCROLLVIEW',
-    visible:                        false,
-    closeOnChange:                  true,
-    initValue:                      'Select me!',
-    animationType:                  'slide',
-    style:                          {},
-    selectStyle:                    {},
-    selectTextStyle:                {},
-    optionStyle:                    {},
-    optionTextStyle:                {},
-    optionContainerStyle:           {},
-    sectionStyle:                   {},
-    childrenContainerStyle:         {},
-    touchableStyle:                 {},
-    touchableActiveOpacity:         0.2,
-    sectionTextStyle:               {},
-    selectedItemTextStyle:          {},
-    cancelContainerStyle:           {},
-    cancelStyle:                    {},
-    cancelTextStyle:                {},
-    overlayStyle:                   {},
-    initValueTextStyle:             {},
-    cancelText:                     'cancel',
-    disabled:                       false,
-    supportedOrientations:          ['portrait', 'landscape'],
-    keyboardShouldPersistTaps:      'always',
-    backdropPressToClose:           false,
-    openButtonContainerAccessible:  false,
-    listItemAccessible:             false,
-    cancelButtonAccessible:         false,
-    scrollViewAccessible:           false,
-    scrollViewAccessibilityLabel:   "",
+    data: [],
+    onChange: () => { },
+    onModalOpen: () => { },
+    onModalClose: () => { },
+    keyExtractor: (item) => item && item.key,
+    labelExtractor: (item) => item && item.label,
+    componentExtractor: (item) => item && item.component,
+    listType: 'SCROLLVIEW',
+    visible: false,
+    closeOnChange: true,
+    initValue: 'Select me!',
+    animationType: 'slide',
+    style: {},
+    selectStyle: {},
+    selectTextStyle: {},
+    optionStyle: {},
+    optionTextStyle: {},
+    optionContainerStyle: {},
+    sectionStyle: {},
+    childrenContainerStyle: {},
+    touchableStyle: {},
+    touchableActiveOpacity: 0.2,
+    sectionTextStyle: {},
+    selectedItemTextStyle: {},
+    cancelContainerStyle: {},
+    cancelStyle: {},
+    cancelTextStyle: {},
+    overlayStyle: {},
+    initValueTextStyle: {},
+    cancelText: 'cancel',
+    disabled: false,
+    supportedOrientations: ['portrait', 'landscape'],
+    keyboardShouldPersistTaps: 'always',
+    backdropPressToClose: false,
+    openButtonContainerAccessible: false,
+    listItemAccessible: false,
+    cancelButtonAccessible: false,
+    scrollViewAccessible: false,
+    scrollViewAccessibilityLabel: "",
     cancelButtonAccessibilityLabel: "",
-    passThruProps:                  {},
-    selectTextPassThruProps:        {},
-    optionTextPassThruProps:        {},
-    cancelTextPassThruProps:        {},
-    scrollViewPassThruProps:        {},
-    modalOpenerHitSlop:             {top: 0, bottom: 0, left: 0, right: 0},
-    customSelector:                 undefined,
-    selectedKey:                    '',
-    enableShortPress:               true,
-    enableLongPress:                false,
-    optionsTestIDPrefix:            'default',
-    header:                         undefined,
-    onEndReached:                   undefined,
+    passThruProps: {},
+    selectTextPassThruProps: {},
+    optionTextPassThruProps: {},
+    cancelTextPassThruProps: {},
+    scrollViewPassThruProps: {},
+    modalOpenerHitSlop: { top: 0, bottom: 0, left: 0, right: 0 },
+    customSelector: undefined,
+    selectedKey: '',
+    enableShortPress: true,
+    enableLongPress: false,
+    optionsTestIDPrefix: 'default',
+    header: undefined,
+    onEndReached: undefined,
+    statusBarTranslucent: true
 };
 
 export default class ModalSelector extends React.Component {
@@ -142,10 +143,10 @@ export default class ModalSelector extends React.Component {
         super(props);
         let selectedItem = this.validateSelectedKey(props.selectedKey);
         this.state = {
-            modalVisible:  props.visible,
-            selected:      selectedItem.label,
-            cancelText:    props.cancelText,
-            changedItem:   selectedItem.key,
+            modalVisible: props.visible,
+            selected: selectedItem.label,
+            cancelText: props.cancelText,
+            changedItem: selectedItem.key,
         };
     }
 
@@ -175,23 +176,23 @@ export default class ModalSelector extends React.Component {
         let selectedItem = this.props.data.filter((item) => this.props.keyExtractor(item) === key);
         let selectedLabel = selectedItem.length > 0 ? this.props.labelExtractor(selectedItem[0]) : this.props.initValue;
         let selectedKey = selectedItem.length > 0 ? key : undefined;
-        return {label: selectedLabel, key: selectedKey}
+        return { label: selectedLabel, key: selectedKey }
     }
 
     onChange = (item) => {
         const key = this.props.keyExtractor(item);
         if (!item || key == null) { // == coercion
-          return;
+            return;
         }
         this.props.onChange(item);
         this.setState({ selected: this.props.labelExtractor(item), changedItem: item }, () => {
-          if (this.props.closeOnChange)
-            this.close(item);
+            if (this.props.closeOnChange)
+                this.close(item);
         });
     }
 
     getSelectedItem() {
-      return this.state.changedItem;
+        return this.state.changedItem;
     }
 
     close = (item) => {
@@ -203,26 +204,26 @@ export default class ModalSelector extends React.Component {
 
     open = (params = {}) => {
         if (!params.longPress && !this.props.enableShortPress) {
-          return;
+            return;
         }
         if (params.longPress && !this.props.enableLongPress) {
-          return;
+            return;
         }
         this.props.onModalOpen(params);
         this.setState({
             modalVisible: true,
-            changedItem:  undefined,
+            changedItem: undefined,
         });
     }
 
     renderSection = (section) => {
         const optionComponent = this.props.componentExtractor(section);
         let component = optionComponent || (
-          <Text style={[styles.sectionTextStyle,this.props.sectionTextStyle]}>{this.props.labelExtractor(section)}</Text>
+            <Text style={[styles.sectionTextStyle, this.props.sectionTextStyle]}>{this.props.labelExtractor(section)}</Text>
         );
 
         return (
-            <View key={this.props.keyExtractor(section)} style={[styles.sectionStyle,this.props.sectionStyle]}>
+            <View key={this.props.keyExtractor(section)} style={[styles.sectionStyle, this.props.sectionStyle]}>
                 {component}
             </View>
         );
@@ -234,24 +235,24 @@ export default class ModalSelector extends React.Component {
         const isSelectedItem = optionLabel === this.state.selected;
 
         let component = optionComponent || (
-          <Text style={[styles.optionTextStyle,this.props.optionTextStyle,isSelectedItem && this.props.selectedItemTextStyle]} {...this.props.optionTextPassThruProps}>
-              {optionLabel}
-          </Text>
+            <Text style={[styles.optionTextStyle, this.props.optionTextStyle, isSelectedItem && this.props.selectedItemTextStyle]} {...this.props.optionTextPassThruProps}>
+                {optionLabel}
+            </Text>
         );
 
         return (
             <TouchableOpacity
-              key={this.props.keyExtractor(option)}
-              testID={option.testID || this.props.optionsTestIDPrefix + '-' + optionLabel}
-              onPress={() => this.onChange(option)}
-              activeOpacity={this.props.touchableActiveOpacity}
-              accessible={this.props.listItemAccessible}
-              accessibilityLabel={option.accessibilityLabel || undefined}
-              importantForAccessibility={isFirstItem ? 'yes' : 'no'}
-              {...this.props.passThruProps}
+                key={this.props.keyExtractor(option)}
+                testID={option.testID || this.props.optionsTestIDPrefix + '-' + optionLabel}
+                onPress={() => this.onChange(option)}
+                activeOpacity={this.props.touchableActiveOpacity}
+                accessible={this.props.listItemAccessible}
+                accessibilityLabel={option.accessibilityLabel || undefined}
+                importantForAccessibility={isFirstItem ? 'yes' : 'no'}
+                {...this.props.passThruProps}
             >
-                <View style={[styles.optionStyle, this.props.optionStyle, isLastItem && {borderBottomWidth: 0}]}>
-                  {component}
+                <View style={[styles.optionStyle, this.props.optionStyle, isLastItem && { borderBottomWidth: 0 }]}>
+                    {component}
                 </View>
             </TouchableOpacity>);
     }
@@ -294,21 +295,21 @@ export default class ModalSelector extends React.Component {
 
         let Overlay = View;
         let overlayProps = {
-            style: {flex: 1},
+            style: { flex: 1 },
         };
         // Some RN versions have a bug here, so making the property opt-in works around this problem
         if (backdropPressToClose) {
-          Overlay = TouchableWithoutFeedback;
-          overlayProps = {
-              key: `modalSelector${componentIndex++}`,
-              accessible: false,
-              onPress: this.close,
-          };
+            Overlay = TouchableWithoutFeedback;
+            overlayProps = {
+                key: `modalSelector${componentIndex++}`,
+                accessible: false,
+                onPress: this.close,
+            };
         }
 
-        const optionsContainerStyle = {paddingHorizontal: 10};
+        const optionsContainerStyle = { paddingHorizontal: 10 };
         if (scrollViewPassThruProps && scrollViewPassThruProps.horizontal) {
-          optionsContainerStyle.flexDirection = 'row';
+            optionsContainerStyle.flexDirection = 'row';
         }
 
         return (
@@ -316,7 +317,7 @@ export default class ModalSelector extends React.Component {
                 <View style={[styles.overlayStyle, overlayStyle]}>
                     <View style={[styles.optionContainer, optionContainerStyle]}>
                         {header}
-                        {listType === 'FLATLIST'?
+                        {listType === 'FLATLIST' ?
                             <FlatList
                                 data={data}
                                 keyboardShouldPersistTaps={keyboardShouldPersistTaps}
@@ -342,7 +343,7 @@ export default class ModalSelector extends React.Component {
                     <View style={[styles.cancelContainer, cancelContainerStyle]}>
                         <TouchableOpacity onPress={this.close} activeOpacity={touchableActiveOpacity} accessible={cancelButtonAccessible} accessibilityLabel={cancelButtonAccessibilityLabel}>
                             <View style={[styles.cancelStyle, cancelStyle]}>
-                                <Text style={[styles.cancelTextStyle,cancelTextStyle]} {...this.props.cancelTextPassThruProps}>{cancelText}</Text>
+                                <Text style={[styles.cancelTextStyle, cancelTextStyle]} {...this.props.cancelTextPassThruProps}>{cancelText}</Text>
                             </View>
                         </TouchableOpacity>
                     </View>
@@ -353,7 +354,7 @@ export default class ModalSelector extends React.Component {
 
     renderChildren = () => {
 
-        if(this.props.children) {
+        if (this.props.children) {
             return this.props.children;
         }
         let initSelectStyle = this.props.initValue === this.state.selected ?
@@ -369,6 +370,7 @@ export default class ModalSelector extends React.Component {
 
         const dp = (
             <Modal
+                statusBarTranslucent={this.props.statusBarTranslucent}
                 transparent={true}
                 ref={element => this.model = element}
                 supportedOrientations={this.props.supportedOrientations}
@@ -392,7 +394,7 @@ export default class ModalSelector extends React.Component {
                         activeOpacity={this.props.touchableActiveOpacity}
                         style={this.props.touchableStyle}
                         onPress={this.open}
-                        onLongPress={() => this.open({longPress: true})}
+                        onLongPress={() => this.open({ longPress: true })}
                         disabled={this.props.disabled}
                         accessible={this.props.openButtonContainerAccessible}
                     >
